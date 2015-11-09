@@ -8,10 +8,19 @@ include_once 'tareas.php';
 
 if (!$_POST)
 {	
-	
-	include_once 'Paginacion.php';
+	include_once "FormNuevaTarea.php";
 }
 else 
 {
+	comprobarErrores($errores, $HayError);
+	
+	if ($HayError)
+	{
+		include 'FormNuevaTarea.php';
+	}
+	else 
+	{
+		InsertarRegistro($_POST);
+	}
 		
 }

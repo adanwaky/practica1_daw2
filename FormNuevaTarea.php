@@ -1,69 +1,142 @@
 <html>
+<head> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+ integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" 
+ crossorigin="anonymous">
 
+<!-- Optional theme -->
+<link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" 
+integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" 
+crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
+integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" 
+crossorigin="anonymous"></script>
+
+<?php include_once 'Funciones.php'; include_once 'provincias.php';  ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
+  $.datepicker.regional['es'] = {
+		  closeText: 'Cerrar',
+		  prevText: '<Ant',
+		  nextText: 'Sig>',
+		  currentText: 'Hoy',
+		  monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		  monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		  dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+		  weekHeader: 'Sm',
+		  dateFormat: 'yy-mm-dd',
+		  firstDay: 1,
+		  isRTL: false,
+		  showMonthAfterYear: false,
+		  yearSuffix: ''
+		  };
+		  $.datepicker.setDefaults($.datepicker.regional['es']);
+		 $(function () {
+		 $("#fecha").datepicker();
+		 });
   </script>
-  
+ </head>
 <body>
-
-<form method="post" action="">
-Descripción de la tarea: <br><textarea COLS="40" ROWS="4" name="descripcion" ><?=ValorPost('descripcion')?></textarea>
-
-<p> Nombre: <input type="text" name="nombre" value="<?=ValorPost('nombre')?>" 
-	style="<?php  if (isset($errores['nombre']))
+<div>
+<div class="col-xs-12">
+<div class="panel panel-primary">
+	  <div class="panel-heading">
+		<div class="panel-title">NUEVA TAREA</div>
+	  </div>
+	<div class="panel-body">
+<form role="form" method="post" action="">
+<div class="form-group">
+<div class="row">
+  <div class="col-xs-5">
+<label>
+Descripción de la tarea:</label> 
+<textarea class="form-control"  ROWS="4" name="Descripcion" style="resize:none; 
+<?php  if (isset($errores['Descripcion']))
 			 	echo "background-color: #F78181;"?>">
-			 						<?php  if (isset($errores['nombre']))
-			 								echo $errores['nombre']?>  </p>
-
-<p> Apellidos : <input type="text" name="apellidos" value="<?=ValorPost('apellidos')?>"
-	style="<?php  if (isset($errores['apellidos']))
+<?=ValorPost('Descripcion')?></textarea><?php  if (isset($errores['Descripcion']))
+			 								echo $errores['Descripcion']?>
+</div>
+<div class="col-xs-3">
+<label> Nombre:</label> <input class="form-control" type="text" name="Nombre" value="<?=ValorPost('Nombre')?>" 
+	style="<?php  if (isset($errores['Nombre']))
 			 	echo "background-color: #F78181;"?>">
-			 		<?php  if (isset($errores['apellidos']))
-			 					echo $errores['apellidos']?></p>
-
-<p> DNI: <input type="text" name="dni" value="<?=ValorPost('dni')?>"
-	style="<?php  if (isset($errores['dni']))
+			 						<?php  if (isset($errores['Nombre']))
+			 								echo $errores['Nombre']?>  
+</div>
+<div class="col-xs-4">
+<label>Apellidos:</label> <input class="form-control" type="text" name="Apellidos" value="<?=ValorPost('Apellidos')?>"
+	style="<?php  if (isset($errores['Apellidos']))
 			 	echo "background-color: #F78181;"?>">
-			 		<?php  if (isset($errores['dni']))
-			 				echo $errores['dni']?></p>
-			 	
-<p> Teléfono: <input type="text" name="tlf" value="<?=ValorPost('tlf')?>"
-	style="<?php  if (isset($errores['tlf']))
+			 		<?php  if (isset($errores['Apellidos']))
+			 					echo $errores['Apellidos']?>
+</div>
+</div>
+<div class="row">
+  <div class="col-xs-4">
+<label>DNI: </label> <input class="form-control" type="text" name="DNI" value="<?=ValorPost('DNI')?>"
+	style="<?php  if (isset($errores['DNI']))
 			 	echo "background-color: #F78181;"?>">
-			 		<?php  if (isset($errores['tlf']))
-			 						echo $errores['tlf']?></p>
-			 	
-<p> Correo electrónico: <input type="text" name="correo" value="<?=ValorPost('correo')?>"
-	style="<?php  if (isset($errores['correo']))
+			 		<?php  if (isset($errores['DNI']))
+			 				echo $errores['DNI']?>
+</div>
+<div class="col-xs-4">
+<label> Teléfono:</label>  <input class="form-control" type="text" name="Telefono" value="<?=ValorPost('Telefono')?>"
+	style="<?php  if (isset($errores['Telefono']))
 			 	echo "background-color: #F78181;"?>">
-			 	<?php  if (isset($errores['correo']))
-			 					echo $errores['correo']?></p>
-			 	
-<p> Dirección Jardín: <input type="text" name="direccion" value="<?=ValorPost('direccion')?>"></p>
-<p> Población: <input type="text" name="poblacion" value="<?=ValorPost('poblacion')?>"></p>
-<p> Código postal: <input type="text" name="cp" value="<?=ValorPost('cp')?>"
-style="<?php  if (isset($errores['cp']))
+			 		<?php  if (isset($errores['Telefono']))
+			 						echo $errores['Telefono']?>
+</div>	
+		 	
+<div class="col-xs-4">
+<label> Correo electrónico: </label> <input class="form-control" type="text" name="e-mail" value="<?=ValorPost('e-mail')?>"
+	style="<?php  if (isset($errores['e-mail']))
 			 	echo "background-color: #F78181;"?>">
-			 		<?php  if (isset($errores['cp']))
-			 						echo $errores['cp']?></p>
-			 	
-<!-- >p> Provincia: <!-- select provincias --></p-->
-<p> Fecha realización: <input type="text" name="fec-rea" value="<?=ValorPost('fec-rea')?>" 
-	style="<?php  if (isset($errores['fec-rea']))
-			 	echo "background-color: #F78181;"?>"id="datepicker" readonly>
-			 		<?php  if (isset($errores['fec-rea']))
-			 								echo $errores['fec-rea']?></p>	
-			 		
-Anotaciones anteriores: <br><textarea COLS="40" ROWS="4" name="an-ant" ><?=ValorPost('an-ant')?></textarea>
-<p>Anotaciones posteriores: <br><textarea COLS="40" ROWS="4" name="an-post" ><?=ValorPost('an-post')?></textarea>														
-<input type="submit" value="enviar">
-
-</form>
+			 	<?php  if (isset($errores['e-mail']))
+			 					echo $errores['e-mail']?>
+</div>	
+</div>	
+ <div class="row">
+  <div class="col-xs-3">
+<label> Dirección Jardín:</label>  <input class="form-control" type="text" name="Direccion" value="<?=ValorPost('Direccion')?>"></div>
+<div class="col-xs-3">
+<label> Población: </label> <input class="form-control" type="text" name="Poblacion" value="<?=ValorPost('Poblacion')?>"></div>
+<div class="col-xs-3">
+<label> Código postal: </label> <input class="form-control" type="text" name="CP" value="<?=ValorPost('CP')?>"
+						style="<?php  if (isset($errores['CP']))
+			 					echo "background-color: #F78181;"?>">
+			 					<?php  if (isset($errores['CP']))
+			 						echo $errores['CP']?>
+</div>	
+<div class="col-xs-3">		 	
+<label> Provincia:</label> <?=CreaSelect("tbl_provincias_cod", $provincias,ValorPost('tbl_provincias_cod'))?></div>
+</div>
+<div class="row">
+<input type="hidden" name="Estado" value="Pendiente">
+<input type="hidden" name="idOperario" value="null">
+<div class="col-xs-4">		 		
+<label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" value="<?=ValorPost('Fecha_realizacion')?>" 
+	style="<?php  if (isset($errores['Fecha_realizacion']))
+			 	echo "background-color: #F78181;"?>" id="fecha" readonly>
+			 		<?php  if (isset($errores['Fecha_realizacion']))
+			 						echo $errores['Fecha_realizacion']?>	
+</div>	
+  <div class="col-xs-4">		 		
+<label>Anotaciones anteriores: </label> <textarea class="form-control" COLS="40" ROWS="4" style="resize:none;" name="Anotaciones_anteriores" ><?=ValorPost('Anotaciones_anteriores')?></textarea></div>
+<div class="col-xs-4">
+<label>Anotaciones posteriores:</label>  <textarea class="form-control" COLS="40" ROWS="4" style="resize:none;" name="Anotaciones_posteriores" ><?=ValorPost('Anotaciones_posteriores')?></textarea></div>																	
+</div></div>
+<center><input class="btn btn-success" type="submit" value="CREAR TAREA"></center>
+</form></div></div>
+</div></div>
 </body>
 </html>
