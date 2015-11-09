@@ -1,3 +1,4 @@
+<?php include_once 'Funciones.php';?>
 <html>
 <head> 
 <!-- Latest compiled and minified CSS -->
@@ -16,30 +17,90 @@ crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
 integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" 
 crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $.datepicker.regional['es'] = {
+		  closeText: 'Cerrar',
+		  prevText: '<Ant',
+		  nextText: 'Sig>',
+		  currentText: 'Hoy',
+		  monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		  monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		  dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+		  weekHeader: 'Sm',
+		  dateFormat: 'yy-mm-dd',
+		  firstDay: 1,
+		  isRTL: false,
+		  showMonthAfterYear: false,
+		  yearSuffix: ''
+		  };
+		  $.datepicker.setDefaults($.datepicker.regional['es']);
+		 $(function () {
+		 $("#fecha").datepicker();
+		 });
+  </script>
 </head>
 <body>
 <div>
 <div class="col-xs-12">
 <div class="row">
-<div class="col-xs-11">
+<div class="col-xs-10">
 	<div class="panel panel-primary">
-		
 	  <div class="panel-heading">
 		<div class="panel-title">Buscar</div>
 	  </div>
 	  <div class="panel-body">
-		Contenido del panel
+		<form role="form" method="post" action="" class="form-horizontal">
+		<div class="form-group">
+			<div class="row">
+					<label class="col-xs-2 control-label">Fecha de realización: </label>
+					<div class="col-xs-1">
+					<select class="form-control" name="operacion">
+						<option value=">=">>=</option>
+						<option value="<="><=</option>
+					</select>
+					</div>
+					<div class="col-xs-2">
+						<input class="form-control" type="text" name="fecha" value=""  id="fecha">	
+					</div>
+			
+				<label class="col-xs-1 control-label">Estado: </label>
+					<div class="col-xs-2">
+					<select class="form-control" name="estado">
+						<option value=""> </option>
+						<option value="Pendiente">Pendiente</option>
+						<option value="Realizada">Realizada</option>
+						<option value="Cancelada">Cancelada</option>
+					</select>
+				</div>	
+				
+				<label class="col-xs-2 control-label">Nombre empieza por: </label>
+				<div class="col-xs-1">
+				<input class="form-control" type="text" name="letra" value="">	
+				</div>
+				<button type="submit"  class="btn btn-default">
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+			</div>
+		</div>
+		</form>
 	  </div>
 	</div>
 </div>
-<div class="col-xs-1">
+<div class="col-xs-2">
 	<div class="panel panel-success">
 		
 	  <div class="panel-heading">
-		<div class="panel-title">Nueva Tarea</div>
+		<div class="panel-title" align="center">Nueva Tarea</div>
 	  </div>
-	  <div class="panel-body">
-		<a href="NuevaTarea.php"> <img src="nueva.png"></a>
+	  <div class="panel-body" align="center">
+		<a href="NuevaTarea.php"> <img src="nueva.png" ></a>
 	  </div>
 	</div>
 </div>

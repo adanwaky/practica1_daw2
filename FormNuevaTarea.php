@@ -119,6 +119,7 @@ Descripción de la tarea:</label>
 </div>	
 <div class="col-xs-3">		 	
 <label> Provincia:</label> <?=CreaSelect("tbl_provincias_cod", $provincias,ValorPost('tbl_provincias_cod'))?></div>
+<?php  if (isset($errores['tbl_provincias_cod'])) echo $errores['tbl_provincias_cod']?>
 </div>
 <div class="row">
 <input type="hidden" name="Estado" value="Pendiente">

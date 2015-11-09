@@ -31,9 +31,10 @@ $nReg=($nPag-1)*$nElementosxPagina;
 // --SENTENCIAS PHP -- Mostramos los elementos de la consulta como deseemos
 $resultado =DatosPaginacion($nReg, $nElementosxPagina);
 
-include_once 'FormInicio.php';
-//
 
+include_once 'FormInicio.php';
 MuestraPaginador($nPag, $totalPaginas, $myURL);
+
+
 
 

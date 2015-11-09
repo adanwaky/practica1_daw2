@@ -9,9 +9,9 @@ include_once 'tareas.php';
 if (!$_POST)
 {	
 	
-	include_once 'Paginacion.php';
+	include_once 'inicio_pag.php';
 }
 else 
 {
-		
+		include_once 'buscar.php';
 }

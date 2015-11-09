@@ -130,3 +130,41 @@ function VistaDetallada($idTarea)
 		}
 		return $Tarea;
 	}
+	
+	
+	function BuscarTareas(& $nReg,& $nElementosxPagina, $operacion, $fecha, $estado, $nombre )
+	{
+		/*Creamos la instancia del objeto. Ya estamos conectados*/
+		$bd = Db::getInstance();
+	
+		/*Creamos una query sencilla*/
+		$sql = "SELECT idTarea as id, Nombre as nom, Telefono as tlf,
+		Direccion as dir, Poblacion as pobl, Estado as est,
+		Fecha_creacion as fec_cre, Fecha_realizacion as fec_rea,
+		idOperario as op FROM `tarea` WHERE 
+		Fecha_realizacion $operacion '$fecha%' and
+		Estado like '$estado%' and Nombre like '$nombre%'
+		LIMIT $nReg, $nElementosxPagina ";
+		
+		/*Ejecutamos la query*/
+		$bd->Consulta($sql);
+	
+		// Creamos el array donde se guardarán las tareas
+		$Tareas = Array();
+	
+		/*Realizamos un bucle para ir obteniendo los resultados*/
+		while ($reg = $bd->LeeRegistro())
+		{
+			$Tareas[$reg['id']] = Array(
+					'idTarea'=>$reg['id'],
+					'Nombre'=>$reg['nom'],
+					'Telefono'=>$reg['tlf'],
+					'Direccion'=>$reg['dir'],
+					'Poblacion'=> $reg['pobl'],
+					'Estado'=>$reg['est'],
+					'Fecha_creacion'=>$reg['fec_cre'],
+					'Fecha_realizacion'=>$reg['fec_rea'],
+					'Operario'=> $reg['op'] );
+		}
+		return $Tareas;
+	}	

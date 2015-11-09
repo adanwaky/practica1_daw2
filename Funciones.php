@@ -25,8 +25,6 @@ function comprobarErrores(& $errores,& $HayError)
 	if ($_POST['e-mail']=="" ||!filter_var($_POST['e-mail'], FILTER_VALIDATE_EMAIL)){
 		$errores['e-mail']="Error en el e-mail";$HayError=true;}
 		
-		//$fecha=	date("Y-d-m",strtotime($_POST['Fecha_realizacion']));
-		//$_POST['Fecha_realizacion']=$fecha;
 		
 	if($_POST['Fecha_realizacion']<= date('Y-m-d')){
 		$errores['Fecha_realizacion']="Fecha de realización menor o igual que hoy";$HayError=true;}
@@ -61,6 +59,7 @@ function comprobarErrores(& $errores,& $HayError)
 function CreaSelect($name, $opciones, $valorDefecto='')
 {
 	$html="\n".'<select class="form-control" name="'.$name.'">';
+	$html.='<option value=""></option>';
 	foreach($opciones as $value=>$text)
 	{
 		if ($value==$valorDefecto)
@@ -120,3 +119,4 @@ function MuestraPaginador($pag_actual, $nPags, $url)
 				else
 					return $texto;
 }
+

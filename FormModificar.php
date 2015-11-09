@@ -54,7 +54,7 @@ crossorigin="anonymous"></script>
 		<div class="panel-title">MODIFICAR TAREA</div>
 	  </div>
 	<div class="panel-body">
-<form role="form" method="post" action="">
+<form role="form" method="post"  action="">
 <input type="hidden" name="idTarea" value="<?= $tareas['idTarea']?>">
 <div class="form-group">
 <div class="row">
