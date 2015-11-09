@@ -2,9 +2,9 @@
 include_once "Funciones.php";
 $errores=[];
 $HayError=false;
-include_once 'provincias.php';
+include_once '\\..\\models\\provincias.php';
 $provincias=Provincias();
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 
 if (!$_POST)
 {	

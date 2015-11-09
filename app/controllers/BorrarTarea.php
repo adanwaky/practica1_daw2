@@ -1,5 +1,5 @@
 <?php
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 $resultado=BuscarTarea($_GET['idTarea']);
 
 if (! $_POST)
@@ -9,7 +9,7 @@ if (! $_POST)
 else 
 {
 		if (isset($_POST['no']))
-			include_once "Paginacion.php";
+			include_once "inicio_pag.php";
 		
 		if (isset($_POST['si']))
 		{

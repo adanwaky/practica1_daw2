@@ -1,6 +1,6 @@
 <?php
 /*Incluimos el fichero de la clase*/
-include_once 'bd_model.php';
+include_once '\\..\\..\\install\\bd_model.php';
 
 function ContarRegistros()
 {

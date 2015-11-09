@@ -2,14 +2,14 @@
 include_once "Funciones.php";
 $errores=[];
 $HayError=false;
-include_once 'provincias.php';
+include_once '\\..\\models\\provincias.php';
 $provincias=Provincias();
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 $tareas=VistaDetallada($_GET['idTarea']);
 
 
 if(! $_POST)
-	include 'FormModificar.php';
+	include '\\..\\views\\FormModificar.php';
 else 
 {
 	comprobarErrores($errores, $HayError);
@@ -17,7 +17,7 @@ else
 	if ($HayError)
 	{
 		$tareas=$_POST;
-		include 'FormModificar.php';
+		include '\\..\\views\\FormModificar.php';
 	}
 	else 
 	{

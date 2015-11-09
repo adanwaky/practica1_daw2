@@ -1,5 +1,5 @@
 <?php
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 include_once 'Funciones.php';
 
 // Ruta URL desde la que ejecutamos el script
@@ -34,7 +34,7 @@ if ($_POST['fecha']=="")
 $resultado =BuscarTareas($nReg, $nElementosxPagina, $_POST['operacion'],$_POST['fecha'], $_POST['estado'], $_POST['letra'] );
 
 
-include_once 'FormInicio.php';
+include_once '\\..\\views\\FormInicio.php';
 MuestraPaginador($nPag, $totalPaginas, $myURL);
 
 

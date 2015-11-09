@@ -1,5 +1,5 @@
 <?php
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 include_once 'Funciones.php';
 
 // Ruta URL desde la que ejecutamos el script
@@ -32,7 +32,7 @@ $nReg=($nPag-1)*$nElementosxPagina;
 $resultado =DatosPaginacion($nReg, $nElementosxPagina);
 
 
-include_once 'FormInicio.php';
+include_once '\\..\\views\\FormInicio.php';
 MuestraPaginador($nPag, $totalPaginas, $myURL);
 
 

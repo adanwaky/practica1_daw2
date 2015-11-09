@@ -2,13 +2,13 @@
 include_once "Funciones.php";
 $errores=[];
 $HayError=false;
-include_once 'provincias.php';
+include_once '\\..\\models\\provincias.php';
 $provincias=Provincias();
-include_once 'tareas.php';
+include_once '\\..\\models\\tareas.php';
 
 if (!$_POST)
 {	
-	include_once "FormNuevaTarea.php";
+	include_once "\\..\\views\\FormNuevaTarea.php";
 }
 else 
 {
@@ -16,7 +16,7 @@ else
 	
 	if ($HayError)
 	{
-		include 'FormNuevaTarea.php';
+		include '\\..\\views\\FormNuevaTarea.php';
 	}
 	else 
 	{

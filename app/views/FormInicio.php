@@ -1,4 +1,4 @@
-<?php include_once 'Funciones.php';?>
+<?php include_once '\\..\\controllers\\Funciones.php';?>
 <html>
 <head> 
 <!-- Latest compiled and minified CSS -->
@@ -50,7 +50,7 @@ crossorigin="anonymous"></script>
 <div>
 <div class="col-xs-12">
 <div class="row">
-<div class="col-xs-10">
+<div class="col-xs-11">
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
 		<div class="panel-title">Buscar</div>
@@ -64,6 +64,7 @@ crossorigin="anonymous"></script>
 					<select class="form-control" name="operacion">
 						<option value=">=">>=</option>
 						<option value="<="><=</option>
+						<option value="=">=</option>
 					</select>
 					</div>
 					<div class="col-xs-2">
@@ -93,14 +94,14 @@ crossorigin="anonymous"></script>
 	  </div>
 	</div>
 </div>
-<div class="col-xs-2">
+<div class="col-xs-1">
 	<div class="panel panel-success">
 		
 	  <div class="panel-heading">
 		<div class="panel-title" align="center">Nueva Tarea</div>
 	  </div>
 	  <div class="panel-body" align="center">
-		<a href="NuevaTarea.php"> <img src="nueva.png" ></a>
+		<a href="NuevaTarea.php"> <img src="../../assets/nueva.png" ></a>
 	  </div>
 	</div>
 </div>
@@ -130,10 +131,10 @@ foreach ($resultado as $tarea) {
 <td> <?=$tarea['Fecha_creacion']?></td>
 <td> <?=$tarea['Fecha_realizacion']?></td>
 <td> <?=$tarea['Operario']?></td>
-<td> <a href="Detallada.php?idTarea=<?=$tarea['idTarea']?>" target="_new"> <img src="detalle.ico"></a>
-	 <a href="Modificar.php?idTarea=<?=$tarea['idTarea']?>"> <img src="modificar.ico"></a>
-	 <a href="BorrarTarea.php?idTarea=<?=$tarea['idTarea']?>"> <img src="borrar.ico"></a>
-	 <a href="Completada.php?idTarea=<?=$tarea['idTarea']?>"> <img src="completar.ico"></a></td>
+<td align="center"> <a href="Detallada.php?idTarea=<?=$tarea['idTarea']?>" target="_new"> <img src="../../assets/detalle.ico"></a>
+	 <a href="Modificar.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/modificar.ico"></a>
+	 <a href="BorrarTarea.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/borrar.ico"></a>
+	 <a href="Completada.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/completar.ico"></a></td>
 </tr>
  <?php 
 }

@@ -1,4 +1,5 @@
-<?php  include_once 'provincias.php'; include_once 'Funciones.php';
+<?php  include_once '\\..\\models\\provincias.php'; 
+include_once '\\..\\controllers\\Funciones.php';
 $provincias=Provincias();?>
 <html>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

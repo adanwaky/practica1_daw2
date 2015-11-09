@@ -1,6 +1,6 @@
 <?php
 /*Incluimos el fichero de configuracion base de datos*/
-include_once 'config.php';
+include_once '\\..\\app\\config.php';
 
 /* Clase encargada de gestionar las conexiones a la base de datos */
 Class Db {
