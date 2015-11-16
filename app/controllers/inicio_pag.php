@@ -5,7 +5,7 @@ include_once 'Funciones.php';
 // Ruta URL desde la que ejecutamos el script
 $myURL='pruebas.php'; 
 
-$nElementosxPagina=5;
+$nElementosxPagina=10;
 
 // Calculamos el n�mero de p�gina que mostraremos
 if (isset($_GET['pag']))

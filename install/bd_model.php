@@ -159,4 +159,9 @@ Class Db {
 		return $this->link->query($sql);
 	}
 	
+	public function GetTarea($id, $tabla)
+	{
+		$sql = "SELECT count(*) FROM `jardines`.$tabla WHERE $tabla.`idTarea` = $id";	
+			
+	}
 }

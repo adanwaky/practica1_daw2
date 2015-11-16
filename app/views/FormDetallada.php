@@ -33,7 +33,7 @@ crossorigin="anonymous"></script>
 			<div class="panel-title">Descripción de la tarea</div>
 		</div>
 		<div class="panel-body">
-		<?=$tareas['Descripcion']?>
+		<?=nl2br($tareas['Descripcion'])?>
 		</div>
 	</div>
 </div>
@@ -181,7 +181,7 @@ crossorigin="anonymous"></script>
 			<div class="panel-title">Anotaciones anteriores</div>
 		</div>
 		<div class="panel-body">
-		<?=$tareas['Anotaciones_anteriores']?>
+		<?=nl2br($tareas['Anotaciones_anteriores'])?>
 		</div>
 	</div>
 </div>
@@ -191,7 +191,7 @@ crossorigin="anonymous"></script>
 			<div class="panel-title">Anotaciones posteriores</div>
 		</div>
 		<div class="panel-body">
-		<?=$tareas['Anotaciones_posteriores']?>
+		<?=nl2br($tareas['Anotaciones_posteriores'])?>
 		</div>
 	</div>
 </div>	 		

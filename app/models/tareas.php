@@ -167,4 +167,18 @@ function VistaDetallada($idTarea)
 					'Operario'=> $reg['op'] );
 		}
 		return $Tareas;
-	}	
+	}
+function ExisteTarea($id)
+{
+	$bd=Db::getInstance();
+	$cont = $bd->GetTarea($id, 'tarea');
+	
+	if ($cont!=0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}	

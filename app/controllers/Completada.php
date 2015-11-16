@@ -1,3 +1,4 @@
+
 <?php
 include_once '\\..\\models\\tareas.php';
 $tareas=VistaDetallada($_GET['idTarea']);
@@ -7,5 +8,7 @@ if(! $_POST)
 else 
 {
 	ActualizarRegistro($_POST, $_GET['idTarea']);
+	include_once 'redireccionar.php';
 }
 
+?>

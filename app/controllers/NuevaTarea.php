@@ -1,3 +1,4 @@
+
 <?php
 include_once "Funciones.php";
 $errores=[];
@@ -21,6 +22,7 @@ else
 	else 
 	{
 		InsertarRegistro($_POST);
+		include_once 'redireccionar.php';
 	}
 		
 }

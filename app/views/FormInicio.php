@@ -49,63 +49,7 @@ crossorigin="anonymous"></script>
 <body>
 <div>
 <div class="col-xs-12">
-<div class="row">
-<div class="col-xs-11">
-	<div class="panel panel-primary">
-	  <div class="panel-heading">
-		<div class="panel-title">Buscar</div>
-	  </div>
-	  <div class="panel-body">
-		<form role="form" method="post" action="" class="form-horizontal">
-		<div class="form-group">
-			<div class="row">
-					<label class="col-xs-2 control-label">Fecha de realización: </label>
-					<div class="col-xs-1">
-					<select class="form-control" name="operacion">
-						<option value=">=">>=</option>
-						<option value="<="><=</option>
-						<option value="=">=</option>
-					</select>
-					</div>
-					<div class="col-xs-2">
-						<input class="form-control" type="text" name="fecha" value=""  id="fecha">	
-					</div>
-			
-				<label class="col-xs-1 control-label">Estado: </label>
-					<div class="col-xs-2">
-					<select class="form-control" name="estado">
-						<option value=""> </option>
-						<option value="Pendiente">Pendiente</option>
-						<option value="Realizada">Realizada</option>
-						<option value="Cancelada">Cancelada</option>
-					</select>
-				</div>	
-				
-				<label class="col-xs-2 control-label">Nombre empieza por: </label>
-				<div class="col-xs-1">
-				<input class="form-control" type="text" name="letra" value="">	
-				</div>
-				<button type="submit"  class="btn btn-default">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
-			</div>
-		</div>
-		</form>
-	  </div>
-	</div>
-</div>
-<div class="col-xs-1">
-	<div class="panel panel-success">
-		
-	  <div class="panel-heading">
-		<div class="panel-title" align="center">Nueva Tarea</div>
-	  </div>
-	  <div class="panel-body" align="center">
-		<a href="NuevaTarea.php"> <img src="../../assets/nueva.png" ></a>
-	  </div>
-	</div>
-</div>
-</div>
+
 <table border="1" class="table table-condensed">
 <tr class="success" align="center">
 	<td> <b>Tarea</b></td>
@@ -131,10 +75,10 @@ foreach ($resultado as $tarea) {
 <td> <?=$tarea['Fecha_creacion']?></td>
 <td> <?=$tarea['Fecha_realizacion']?></td>
 <td> <?=$tarea['Operario']?></td>
-<td align="center"> <a href="Detallada.php?idTarea=<?=$tarea['idTarea']?>" target="_new"> <img src="../../assets/detalle.ico"></a>
-	 <a href="Modificar.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/modificar.ico"></a>
-	 <a href="BorrarTarea.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/borrar.ico"></a>
-	 <a href="Completada.php?idTarea=<?=$tarea['idTarea']?>"> <img src="../../assets/completar.ico"></a></td>
+<td align="center"> <a href="?page=Detallada&idTarea=<?=$tarea['idTarea']?>" > <img src="../assets/detalle.ico"></a>
+	 <a href="?page=Modificar&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/modificar.ico"></a>
+	 <a href="?page=BorrarTarea&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/borrar.ico"></a>
+	 <a href="?page=Completada&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/completar.ico"></a></td>
 </tr>
  <?php 
 }

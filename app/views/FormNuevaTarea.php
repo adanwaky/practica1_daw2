@@ -50,7 +50,7 @@ include_once '\\..\\models\\provincias.php';  ?>
 <body>
 <div>
 <div class="col-xs-12">
-<div class="panel panel-primary">
+<div class="panel panel-success">
 	  <div class="panel-heading">
 		<div class="panel-title">NUEVA TAREA</div>
 	  </div>
@@ -124,7 +124,7 @@ Descripción de la tarea:</label>
 </div>
 <div class="row">
 <input type="hidden" name="Estado" value="Pendiente">
-<input type="hidden" name="idOperario" value="null">
+<input type="hidden" name="idOperario" value="">
 <div class="col-xs-4">		 		
 <label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" value="<?=ValorPost('Fecha_realizacion')?>" 
 	style="<?php  if (isset($errores['Fecha_realizacion']))
