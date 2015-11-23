@@ -1,3 +1,4 @@
+<!-- FORMULARIO PARA COMPLETAR UNA TAREA, EDITABLE EL ESTADO Y LAS ANOTACIONES POSTERIORES -->
 <html>
 <head> 
 <!-- Latest compiled and minified CSS -->
@@ -19,6 +20,7 @@ crossorigin="anonymous"></script>
 
 <?php include_once '\\..\\controllers\\Funciones.php'; 
 include_once '\\..\\models\\provincias.php';  ?>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

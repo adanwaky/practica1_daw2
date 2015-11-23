@@ -1,4 +1,6 @@
 <?php
+//LLAMA A LA PÁGINA DE LA CARPETA CONTROLLERS QUE PIDAMOS USANDO GET index.php?
+
 define('CTRL','..\\app\\controllers\\');
 if (!isset($_GET['page'])) 
 {
@@ -13,6 +15,6 @@ if (!isset($_GET['page']))
      include(CTRL.$_GET['page'].".php");
 	}
 	else 
-		include CTRL.'Error404.php';
+		include_once 'Error404.php';
 }
 ?>

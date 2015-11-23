@@ -1,3 +1,4 @@
+<!-- PÁGINA DONDE SE MUESTRAN TODOS LOS DATOS DE UNA TAREA  -->
 <html>
 <head> 
 <!-- Latest compiled and minified CSS -->
@@ -17,7 +18,7 @@ crossorigin="anonymous">
 integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" 
 crossorigin="anonymous"></script>
 </head>
-<?php include_once '\\..\\models\\provincias.php'; ?>  
+<?php include_once '\\..\\models\\provincias.php'; //$tareas DECLARADO EN EL CONTROLADOR?>  
 <body>
 
 <div>

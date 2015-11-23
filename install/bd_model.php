@@ -122,7 +122,12 @@ Class Db {
 		}
 	}
 
-
+	/**
+	 * Inserta un registro en la tabla pasada por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $registro
+	 * @return mixed
+	 */
 	public function Insertar($tabla, $registro){
 
 	$values=array();
@@ -139,6 +144,13 @@ Class Db {
 	return $this->link->query($sql);
 	}
 	
+	/**
+	 * Actualiza los datos de un registro especificado y en la tabla pasado por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $registro
+	 * @param unknown $id
+	 * @return mixed
+	 */
 	public function Actualizar($tabla, $registro, $id){
 	
 		
@@ -153,15 +165,17 @@ Class Db {
 		return $this->link->query($sql);
 	}
 
+	/**
+	 * Elimina un registro especificado de la tabla pasada por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $id
+	 * @return mixed
+	 */	
 	public function Borrar($tabla, $id)
 	{
 		$sql = "DELETE FROM `jardines`.$tabla WHERE $tabla.`idTarea` = $id";
 		return $this->link->query($sql);
 	}
 	
-	public function GetTarea($id, $tabla)
-	{
-		$sql = "SELECT count(*) FROM `jardines`.$tabla WHERE $tabla.`idTarea` = $id";	
-			
-	}
+
 }

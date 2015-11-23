@@ -1,3 +1,4 @@
+<!-- ENCABEZAMIENTO DE LA PÁGINA -->
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -21,7 +22,7 @@ crossorigin="anonymous"></script>
 <div class="col-xs-12">
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
-		<div class="panel-title"> <a href="web.php?page=inicio_pag"><img src="../assets/logo.png"> Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;    
+		<div class="panel-title"> <a href="web.php?page=inicio_pag"><img src="../assets/logo.png"> <img src="../assets/paco.png"></a>&nbsp;&nbsp;|&nbsp;&nbsp;    
      <a href="?page=NuevaTarea"><img src="../assets/nueva.ico"> Nueva Tarea</a>&nbsp;&nbsp;|&nbsp;&nbsp;
      <a href="?page=buscar_pag">Buscar</a></div>
 	  </div>

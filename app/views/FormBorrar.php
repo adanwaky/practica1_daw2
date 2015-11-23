@@ -1,3 +1,4 @@
+<!-- FORMULARIO DE CONFIRMACIÓN DE BORRADO -->
 <html>
 <head> 
 <!-- Latest compiled and minified CSS -->
@@ -34,7 +35,7 @@ crossorigin="anonymous"></script>
 	<td><b>Operario</b></td>
 </tr>
 <?php 
-foreach ($resultado as $tarea) {
+foreach ($resultado as $tarea) {//$resultado DECLARADO EN EL CONTROLADOR
 ?>
 <tr> <td> <?=$tarea['idTarea']?></td>
 <td> <?=$tarea['Nombre']?></td>

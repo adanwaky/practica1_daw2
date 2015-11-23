@@ -1,6 +1,8 @@
-<?php  include_once '\\..\\models\\provincias.php'; 
+<?php 
+//FORMULARIO PARA BUSCAR UNA TAREA
+include_once '\\..\\models\\provincias.php'; 
 include_once '\\..\\controllers\\Funciones.php';
-$provincias=Provincias();?>
+$provincias=Provincias();//Array de provincias españolas?>
 <html>
 <head>
 <!-- Latest compiled and minified CSS -->

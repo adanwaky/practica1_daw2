@@ -1,5 +1,4 @@
 <?php
-
 /*Incluimos el fichero de la clase*/
 include_once '\\..\\..\\install\\bd_model.php'; 
 
@@ -29,6 +28,11 @@ function Provincias()
 	return $Provincias;
 }
 
+/**
+ * Devuelve el nombre de una provincia de la id pasada por parámetro
+ * @param unknown $id
+ * @return unknown
+ */
 function DevuelveProvincia($id)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
