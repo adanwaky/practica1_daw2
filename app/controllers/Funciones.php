@@ -1,4 +1,10 @@
 <?php
+/**
+ * Devuelve el valor de un campo enviado por POST. Si no existe devuelve el valor por defecto
+ * @param unknown $nombreCampo
+ * @param string $valorPorDefecto
+ * @return unknown|string
+ */
 function ValorPost($nombreCampo, $valorPorDefecto='')
 {
 	if (isset($_POST[$nombreCampo]))
@@ -6,12 +12,16 @@ function ValorPost($nombreCampo, $valorPorDefecto='')
 	else
 		return $valorPorDefecto;
 }
-
+/**
+ * Comprueba que los datos introducidos en los formularios son correctos
+ * @param unknown $errores
+ * @param unknown $HayError
+ */
 function comprobarErrores(& $errores,& $HayError)
 {
 	$exp_cp='/0[1-9][0-9]{3}|[1-4][0-9]{4}|5[0-2][0-9]{3}/'; //CP ESPAÑA
 	$exp_tlf= '/[0-9]{9}$/'; //TELEFONO	
-	$exp_dni='/^[0-9]{8}[A-Z]$/'; //DNI
+	$exp_dni='/^[0-9]{8}[A-Za-z]$/'; //DNI
 	
 	if ($_POST['Descripcion']=="") {
 		$errores['Descripcion']="Descripción vacío"; $HayError=true; }
@@ -19,16 +29,14 @@ function comprobarErrores(& $errores,& $HayError)
 	if ($_POST['Nombre']==""){
 		$errores['Nombre']="Nombre vacío"; $HayError=true;}
 		
-		if ($_POST['Apellidos']==""){
-			$errores['Apellidos']="Apellidos vacío"; $HayError=true;}
+	if ($_POST['Apellidos']==""){
+		$errores['Apellidos']="Apellidos vacío"; $HayError=true;}
 	
 	if ($_POST['e-mail']=="" ||!filter_var($_POST['e-mail'], FILTER_VALIDATE_EMAIL)){
 		$errores['e-mail']="Error en el e-mail";$HayError=true;}
 		
-		
 	if($_POST['Fecha_realizacion']<= date('Y-m-d')){
-		$errores['Fecha_realizacion']="Fecha de realización menor o igual que hoy";$HayError=true;}
-		
+		$errores['Fecha_realizacion']="Fecha de realización menor o igual que hoy";$HayError=true;}		
 		
 	if (!preg_match($exp_cp, $_POST['CP'])){
 		$errores['CP']="Código postal incorrecto"; $HayError=true;}
@@ -37,6 +45,7 @@ function comprobarErrores(& $errores,& $HayError)
 		$errores['tbl_provincias_cod']="Provincia vacía"; $HayError=true;}
 	
 	$telefono=$_POST['Telefono'];
+	//Se quitan los espacios y guiones al telefono para validar la expresión regular
 	$telefono=str_replace(" ", "", $telefono);
 	$telefono=str_replace("-", "", $telefono);
 	
@@ -99,7 +108,7 @@ function MuestraPaginador($pag_actual, $nPags, $url)
 	{
 	echo EnlaceAPagina($url, $pag, "<button type='button' class='btn btn-primary btn-sm'>$pag</button>", $pag_actual!=$pag);
 	}
-	echo "</div>";
+	echo "<br><br></div>";
 }
 
 	/**
@@ -115,8 +124,42 @@ function MuestraPaginador($pag_actual, $nPags, $url)
 	function EnlaceAPagina($url, $pag, $texto, $activo=true)
 	{
 	if ($activo)
-		return '  <a href="'.$url.'?pag='.$pag.'">'.$texto.'</a>  ';
+		return '  <a href="'.$url.'&pag='.$pag.'">'.$texto.'</a>  ';//& para pasar la variable pag
 				else
 					return $texto;
 }
 
+function ErrorGuardarUser(& $errores,& $HayError)
+{
+	if (CoincideUser($_POST['nombre'], $_POST['tipo'])){
+		$errores['usnom']="¡Usuario existente!"; $HayError=true;
+	}
+			
+	if ($_POST['nombre']=="")
+	{
+		$errores['usnom']="¡Campo vacío!"; $HayError=true;
+	}
+	if ($_POST['password']=="")
+	{
+		$errores['pass']="¡Escriba la misma contraseña!"; $HayError=true;
+	}
+	if ($_POST['pass1'] != $_POST['password']){
+		$errores['pass']="¡Escriba la misma contraseña!"; $HayError=true;}
+		
+}
+
+
+function ErrorModUser($iduser, & $errores,& $HayError)
+{
+	
+	if ($_POST['nombre']==""){
+		$errores['usnom']="¡Campo vacío!"; $HayError=true;}
+	
+	$contraseña=DevuelveContraseña($iduser);
+	
+	if ($_POST['pass']!=$contraseña){
+		$errores['pass']="¡Contraseña incorrecta!"; $HayError=true;}
+
+	if ($_POST['password']==""){
+		$errores['pass2']="¡Contraseña vacía!"; $HayError=true;}
+}

@@ -1,13 +1,19 @@
 <?php
-/*Incluimos el fichero de la clase*/
-include_once '\\..\\..\\install\\bd_model.php';
 
+/*Incluimos el fichero de la clase*/
+include_once INS.'bd_model.php'; 
+
+/**
+ * Devuelve el número de registros en la base de datos
+ * @return Ambigous <multitype:, NULL>
+ */
 function ContarRegistros()
 {
 	$bd = Db::getInstance();	
 	$tabla='tarea';
 	$sql = "select count(*) as total from $tabla";
 	$bd->Consulta($sql);
+	
 	//Creamos el array donde se guardarán las tareas
 	$numero = Array();
 	
@@ -18,6 +24,11 @@ function ContarRegistros()
 	}
 	return $numero;
 }
+
+/**
+ * Inserta un registro en la base de datos
+ * @param unknown $registros
+ */
 function InsertarRegistro($registros)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
@@ -26,21 +37,36 @@ function InsertarRegistro($registros)
 	$bd->Insertar('tarea', $registros);
 }
 
+/**
+ * Actualiza los datos de un registro en la base de datos
+ * @param unknown $registro
+ * @param unknown $id
+ */
 function ActualizarRegistro($registro, $id)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
 	$bd = Db::getInstance();
-	$bd->Actualizar('tarea', $registro, $id);
+	$bd->Actualizar('tarea', $registro,'idTarea', $id);
 }
 
+/**
+ * Borra un registro en la base de datos
+ * @param unknown $idTarea
+ */
 function BorrarRegistro($idTarea)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
 	$bd = Db::getInstance();
 	
-	$bd->Borrar('tarea', $idTarea);
+	$bd->Borrar('tarea', `idTarea`, $idTarea);
 }
 
+/**
+ * Devuelve una serie de datos de cada tarea
+ * @param unknown $nReg
+ * @param unknown $nElementosxPagina
+ * @return multitype:multitype:unknown Ambigous <>
+ */
 function DatosPaginacion(& $nReg,& $nElementosxPagina)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
@@ -75,6 +101,11 @@ function DatosPaginacion(& $nReg,& $nElementosxPagina)
 	return $Tareas;
 }
 
+/**
+ * Devuelve todos los datos de una tarea pasada por parámetro
+ * @param unknown $idTarea
+ * @return Ambigous <multitype:, NULL>
+ */
 function VistaDetallada($idTarea)
 {
 	/*Creamos la instancia del objeto. Ya estamos conectados*/
@@ -97,7 +128,12 @@ function VistaDetallada($idTarea)
 	return $Tareas;
 }
 
-	function BuscarTarea($idTarea)
+/**
+ * Devuelve una serie de datos de una tarea pasada por parámetro
+ * @param unknown $idTarea
+ * @return multitype:multitype:unknown Ambigous <>
+ */
+function BuscarTarea($idTarea)
 	{
 		/*Creamos la instancia del objeto. Ya estamos conectados*/
 		$bd = Db::getInstance();
@@ -131,8 +167,17 @@ function VistaDetallada($idTarea)
 		return $Tarea;
 	}
 	
-	
-	function BuscarTareas(& $nReg,& $nElementosxPagina, $operacion, $fecha, $estado, $nombre )
+/**
+ * Devuelve una serie de datos de las tareas que cumplan una serie de condiciones pasadas por parámetros
+ * @param unknown $nReg
+ * @param unknown $nElementosxPagina
+ * @param unknown $operacion
+ * @param unknown $fecha
+ * @param unknown $estado
+ * @param unknown $nombre
+ * @return multitype:multitype:unknown Ambigous <>
+ */	
+function BuscarTareas(& $nReg,& $nElementosxPagina, $operacion, $fecha, $estado, $nombre )
 	{
 		/*Creamos la instancia del objeto. Ya estamos conectados*/
 		$bd = Db::getInstance();
@@ -167,13 +212,21 @@ function VistaDetallada($idTarea)
 					'Operario'=> $reg['op'] );
 		}
 		return $Tareas;
-	}
+}
+
+/**
+ * Devuelve true o false dependiendo de si existe la tarea en la base de datos o no
+ * @param unknown $id
+ * @return boolean
+ */
 function ExisteTarea($id)
 {
 	$bd=Db::getInstance();
-	$cont = $bd->GetTarea($id, 'tarea');
-	
-	if ($cont!=0)
+	$sql = "SELECT count(*) as total FROM `jardines`.`tarea` WHERE `idTarea` = $id";
+	$bd->Consulta($sql);	
+	$cont = $bd->LeeRegistro();
+
+	if ($cont['total']!=0)
 	{
 		return true;
 	}

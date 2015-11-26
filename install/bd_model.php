@@ -122,7 +122,12 @@ Class Db {
 		}
 	}
 
-
+	/**
+	 * Inserta un registro en la tabla pasada por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $registro
+	 * @return mixed
+	 */
 	public function Insertar($tabla, $registro){
 
 	$values=array();
@@ -139,7 +144,14 @@ Class Db {
 	return $this->link->query($sql);
 	}
 	
-	public function Actualizar($tabla, $registro, $id){
+	/**
+	 * Actualiza los datos de un registro especificado y en la tabla pasado por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $registro
+	 * @param unknown $id
+	 * @return mixed
+	 */
+	public function Actualizar($tabla, $registro, $nom_id, $id){
 	
 		
 		$campos=array();
@@ -149,19 +161,21 @@ Class Db {
 			$campos[]='`'.$campo.'`="'.addslashes($valor).'"';
 		}
 				 
-		$sql = "UPDATE `jardines`.$tabla SET". implode(',', $campos)." WHERE idTarea=$id; ";	
+		$sql = "UPDATE `jardines`.$tabla SET". implode(',', $campos)." WHERE $nom_id=$id; ";	
 		return $this->link->query($sql);
 	}
 
-	public function Borrar($tabla, $id)
+	/**
+	 * Elimina un registro especificado de la tabla pasada por parámetro
+	 * @param unknown $tabla
+	 * @param unknown $id
+	 * @return mixed
+	 */	
+	public function Borrar($tabla, $nom_id, $id)
 	{
-		$sql = "DELETE FROM `jardines`.$tabla WHERE $tabla.`idTarea` = $id";
+		$sql = "DELETE FROM `jardines`.$tabla WHERE $tabla.$nom_id=$id";
 		return $this->link->query($sql);
 	}
 	
-	public function GetTarea($id, $tabla)
-	{
-		$sql = "SELECT count(*) FROM `jardines`.$tabla WHERE $tabla.`idTarea` = $id";	
-			
-	}
+
 }

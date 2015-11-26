@@ -1,24 +1,8 @@
+<!-- FORMULARIO DONDE SE PUEDEN MODIFICAR LOS DATOS DE UNA TAREA -->
 <html>
 <head> 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
- href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
- integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" 
- crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" 
-href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" 
-integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" 
-crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
-integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" 
-crossorigin="anonymous"></script>
-
-<?php include_once '\\..\\controllers\\Funciones.php'; 
-include_once '\\..\\models\\provincias.php';  ?>
+<?php include_once CTRL.'Funciones.php'; 
+include_once MOD.'provincias.php';  ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
