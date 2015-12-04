@@ -25,7 +25,7 @@
 			</div>
 			<div class="row">
 				<label class="col-xs-3 control-label">Contraseña: </label>
-				<input class="col-xs-7" class="form-control" type="text" name="pass" value="" >	
+				<input class="col-xs-7" class="form-control" type="password" name="pass" value="" >	
 			</div>
 			<div class="row">
 				<label class="col-xs-4 control-label">Tipo: </label>

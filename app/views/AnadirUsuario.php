@@ -36,6 +36,8 @@
 				<label class="col-xs-4 control-label">Tipo: </label>
 				<input  type="radio" value="Operario" name="tipo" <?php if ($tipo=="Operario") echo "checked" ?> >Operario
 				<input type="radio" name="tipo" value="Administrador" <?php if ($tipo=="Administrador") echo "checked" ?>>Administrador	
+                                <?php  if (isset($errores['tipo']))
+						echo '<br><br>'.$errores['tipo']?>
 			</div>
 		</div>
 		</div >

@@ -132,7 +132,7 @@
 			<div class="panel-title"> Fecha creación</div>
 		</div>
 		<div class="panel-body">
-		<?=$tareas['Fecha_creacion']?>
+		<?php $fecha2=date("d/m/Y",strtotime($tareas['Fecha_creacion'])); echo $fecha2;?>
 		</div>
 	</div>
 </div>
@@ -152,7 +152,7 @@
 			<div class="panel-title"> Fecha realización</div>
 		</div>
 		<div class="panel-body">
-		<?=$tareas['Fecha_realizacion']?>
+		<?php $fecha2=date("d/m/Y",strtotime($tareas['Fecha_realizacion'])); echo $fecha2;?>
 		</div>
 	</div>
 </div>

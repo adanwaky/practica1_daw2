@@ -1,6 +1,6 @@
 <?php
 /*Incluimos el fichero de configuracion base de datos*/
-include_once '\\..\\app\\config.php';
+include_once APP.'config.php';
 
 /* Clase encargada de gestionar las conexiones a la base de datos */
 Class Db {
@@ -161,7 +161,7 @@ Class Db {
 			$campos[]='`'.$campo.'`="'.addslashes($valor).'"';
 		}
 				 
-		$sql = "UPDATE `jardines`.$tabla SET". implode(',', $campos)." WHERE $nom_id=$id; ";	
+		$sql = "UPDATE `$tabla` SET". implode(',', $campos)." WHERE $nom_id=$id; ";	
 		return $this->link->query($sql);
 	}
 
@@ -173,7 +173,7 @@ Class Db {
 	 */	
 	public function Borrar($tabla, $nom_id, $id)
 	{
-		$sql = "DELETE FROM `jardines`.$tabla WHERE $tabla.$nom_id=$id";
+		$sql = "DELETE FROM `$tabla` WHERE $tabla.$nom_id=$id";
 		return $this->link->query($sql);
 	}
 	

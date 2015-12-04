@@ -25,8 +25,8 @@ foreach ($resultado as $tarea) {//$resultado DECLARADO EN EL CONTROLADOR
 <td> <?=$tarea['Direccion']?></td>
 <td> <?=$tarea['Poblacion']?></td>
 <td> <?=$tarea['Estado']?></td>
-<td> <?=$tarea['Fecha_creacion']?></td>
-<td> <?=$tarea['Fecha_realizacion']?></td>
+<td> <?php $fecha2=date("d/m/Y",strtotime($tarea['Fecha_creacion'])); echo $fecha2;?></td>
+<td> <?php $fecha2=date("d/m/Y",strtotime($tarea['Fecha_realizacion'])); echo $fecha2;?></td>
 <td> <?=$tarea['Operario']?></td>
 </tr>
  <?php 

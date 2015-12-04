@@ -68,14 +68,14 @@ Descripción de la tarea:</label>
 </div>
 <div class="row">
   <div class="col-xs-4">
-<label>DNI: </label> <input class="form-control" type="text" name="DNI" value="<?=ValorPost('DNI')?>"
+<label>DNI: </label> <input maxlength="9" class="form-control" type="text" name="DNI" value="<?=ValorPost('DNI')?>"
 	style="<?php  if (isset($errores['DNI']))
 			 	echo "background-color: #F78181;"?>">
 			 		<?php  if (isset($errores['DNI']))
 			 				echo $errores['DNI']?>
 </div>
 <div class="col-xs-4">
-<label> Teléfono:</label>  <input class="form-control" type="text" name="Telefono" value="<?=ValorPost('Telefono')?>"
+<label> Teléfono:</label>  <input maxlength="9" class="form-control" type="text" name="Telefono" value="<?=ValorPost('Telefono')?>"
 	style="<?php  if (isset($errores['Telefono']))
 			 	echo "background-color: #F78181;"?>">
 			 		<?php  if (isset($errores['Telefono']))
@@ -96,7 +96,7 @@ Descripción de la tarea:</label>
 <div class="col-xs-3">
 <label> Población: </label> <input class="form-control" type="text" name="Poblacion" value="<?=ValorPost('Poblacion')?>"></div>
 <div class="col-xs-3">
-<label> Código postal: </label> <input class="form-control" type="text" name="CP" value="<?=ValorPost('CP')?>"
+<label> Código postal: </label> <input maxlength="5" class="form-control" type="text" name="CP" value="<?=ValorPost('CP')?>"
 						style="<?php  if (isset($errores['CP']))
 			 					echo "background-color: #F78181;"?>">
 			 					<?php  if (isset($errores['CP']))

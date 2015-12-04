@@ -53,12 +53,14 @@ foreach ($resultado as $tarea) { //$resultado DECLARADO EN EL CONTROLADOR
 <td> <?=$tarea['Direccion']?></td>
 <td> <?=$tarea['Poblacion']?></td>
 <td> <?=$tarea['Estado']?></td>
-<td> <?=$tarea['Fecha_creacion']?></td>
-<td> <?=$tarea['Fecha_realizacion']?></td>
+<td> <?php $fecha2=date("d/m/Y",strtotime($tarea['Fecha_creacion'])); echo $fecha2;?></td>
+<td> <?php $fecha2=date("d/m/Y",strtotime($tarea['Fecha_realizacion'])); echo $fecha2;?></td>
 <td> <?=$tarea['Operario']?></td>
 <td align="center"> <a href="?page=Detallada&idTarea=<?=$tarea['idTarea']?>" > <img src="../assets/detalle.ico"></a>
+<?php if (isset($_SESSION['tipo']) && $_SESSION['tipo']=='Administrador'){?>
 	 <a href="?page=Modificar&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/modificar.ico"></a>
 	 <a href="?page=BorrarTarea&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/borrar.ico"></a>
+	 <?php }?>
 	 <a href="?page=Completada&idTarea=<?=$tarea['idTarea']?>"> <img src="../assets/completar.ico"></a></td>
 </tr>
  <?php 

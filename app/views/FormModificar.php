@@ -117,9 +117,9 @@ Descripción de la tarea:</label>
 <div class="col-xs-3">
 <label> Operario:</label>  <input class="form-control" type="text" name="idOperario" value="<?=$tareas['idOperario']?>"></div>
 <div class="col-xs-3">		 		
-<label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" value="<?=$tareas['Fecha_realizacion']?>" 
+<label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" value="<?php $fecha2=date("d/m/Y",strtotime($tareas['Fecha_realizacion'])); echo $fecha2;?>" 
 	style="<?php  if (isset($errores['Fecha_realizacion']))
-			 	echo "background-color: #F78181;"?>" id="fecha" readonly>
+			 	echo "background-color: #F78181;"?>" id="fecha">
 			 		<?php  if (isset($errores['Fecha_realizacion']))
 			 						echo $errores['Fecha_realizacion']?>	
 </div>	

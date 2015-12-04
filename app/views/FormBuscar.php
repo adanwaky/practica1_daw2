@@ -5,6 +5,10 @@ include_once CTRL.'Funciones.php';
 $provincias=Provincias();//Array de provincias españolas?>
 <html>
 <head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
   <script>
   $.datepicker.regional['es'] = {
 		  closeText: 'Cerrar',
@@ -50,7 +54,7 @@ $provincias=Provincias();//Array de provincias españolas?>
 					</select>
 					</div>
 					<div class="col-xs-2">
-						<input class="form-control" type="text" name="fecha" value=""  id="fecha">	
+						<input class="form-control" type="text" name="fecha" value="" id="fecha" readonly>	
 					</div>
 			
 				<label class="col-xs-1 control-label">Estado: </label>

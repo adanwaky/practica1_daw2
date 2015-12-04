@@ -88,11 +88,11 @@ Descripción de la tarea:</label>
 	<input type="radio" name="Estado" value="Cancelada">Cancelada
 </div>
 <div class="col-xs-3">
-<label>Fecha creación</label>  <input class="form-control" readonly name="Fecha_creacion" type="date" value="<?=$tareas['Fecha_creacion']?>"></div>
+<label>Fecha creación</label>  <input class="form-control" readonly name="Fecha_creacion" type="date" value="<?= $tareas['Fecha_creacion'] ?>"></div>
 <div class="col-xs-3">
 <label> Operario:</label>  <input readonly class="form-control" type="text" name="idOperario" value="<?=$tareas['idOperario']?>"></div>
 <div class="col-xs-3">		 		
-<label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" readonly value="<?=$tareas['Fecha_realizacion']?>" >	
+<label> Fecha realización:</label>  <input class="form-control" type="text" name="Fecha_realizacion" readonly value="<?php $fecha2=date("d/m/Y",strtotime($tareas['Fecha_realizacion'])); echo $fecha2;?>" >	
 </div>	
 </div>
 <div class="row">
